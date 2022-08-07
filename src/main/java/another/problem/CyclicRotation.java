@@ -1,3 +1,5 @@
+package another.problem;
+
 import java.util.Arrays;
 
 public class CyclicRotation {

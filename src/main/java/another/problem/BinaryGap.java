@@ -1,3 +1,5 @@
+package another.problem;
+
 public class BinaryGap {
     public static void main(String[] args) {
         System.out.println(gap(6));

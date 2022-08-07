@@ -1,3 +1,5 @@
+package another.problem;
+
 import java.util.stream.Stream;
 
 public class GPS {

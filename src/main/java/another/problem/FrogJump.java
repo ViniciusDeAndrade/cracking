@@ -1,3 +1,5 @@
+package another.problem;
+
 public class FrogJump {
 
     public static int solution(int x, int y, int D) {
