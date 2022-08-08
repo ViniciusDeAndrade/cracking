@@ -1,6 +1,8 @@
 package leetcode;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class TwoSum {
@@ -21,33 +23,19 @@ public class TwoSum {
         System.out.println(res4);
     }
     public static int[] twoSum(int[] nums, int target) {
-        var list = Arrays.stream(nums).boxed()
-                .filter(num -> num < target)
-                .collect(Collectors.toList());
-
         int result [] = {0, 0};
+        Map<Integer, Integer> map = new HashMap<>();
 
-        int leftPointer = 0;
-        int rightPointer = 1;
-        while (leftPointer < list.size() && rightPointer < list.size()) {
-            if(list.get(leftPointer) + list.get(rightPointer) == target) {
-                result[0] = leftPointer;
-                result[1] = rightPointer;
+        for (int curr = 0; curr < nums.length ; curr++) {
+            int x = target - nums[curr] ;
+            if(map.containsKey(target)) {
+                result [0] = map.get(target);
+                result [1] = curr;
                 return result;
+            } else {
+                map.put(target, curr);
             }
-
-            if(list.get(leftPointer) + list.get(rightPointer) > target) {
-                leftPointer ++;
-                continue;
-            }
-
-            if(list.get(leftPointer) + list.get(rightPointer) < target) {
-                if(rightPointer == list.size() -1) leftPointer++;
-                else rightPointer++;
-            }
-
         }
-
         return result;
     }
 }
