@@ -63,7 +63,7 @@ public class Teste {
     }
 
     public static CardTypeCache buildCache(List<BinRange> binRanges) {
-        return binRanges.stream().map(bin -> checkInterval(bin)).collect(Collectors.toList()).stream().findFirst().get();
+        return binRanges.stream().map(Teste::checkInterval).collect(Collectors.toList()).stream().findFirst().get();
     }
 
     private static CardTypeCache checkInterval(BinRange bin) {
@@ -73,7 +73,7 @@ public class Teste {
                 || interval.compareTo(mcEnd) == 0
                 || interval.compareTo(mcStart) == 1
                 && interval.compareTo(mcEnd) == -1)   {
-            cardMap.put(interval.toString(), "visa");
+            cardMap.put(interval.toString(), "mc");
             return new Visa();
         }
 
@@ -81,7 +81,7 @@ public class Teste {
                 || interval.compareTo(visaDebitEnd) == 0
                 || interval.compareTo(visaDebitStart) == 1
                 && interval.compareTo(visaDebitEnd) == -1)   {
-            cardMap.put(interval.toString(), "visa");
+            cardMap.put(interval.toString(), "visadebit");
             return new Visa();
         }
 
